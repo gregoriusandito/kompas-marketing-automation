@@ -1,0 +1,14 @@
+{
+    "name": "kompas/marketing-automation",
+    "description": "Kompas marketing automation using Braze",
+    "require": {
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yosef Yudha Wijaya",
+            "email": "yosef@yudhawijaya.com"
+        }
+    ]
+}

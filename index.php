@@ -1,0 +1,1 @@
+<?php //Talking is cheap
