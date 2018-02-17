@@ -61,7 +61,13 @@ appboy.subscribeToNewInAppMessages(function(inAppMessages) {
 */
 if( cookie.userid ) {
     appboy.changeUser(cookie.userid);  
+    // appboy.getUser().setCustomUserAttribute(
+    //     'last_url',
+    //     kompas_automation_global_vars.this_url 
+    // );    
 }
+
+appboy.logCustomEvent( 'open_article', {url: kompas_automation_global_vars.this_url} );
 
 appboy.openSession();
 // appboy.display.showFeed(); <-- only active when we want use the news feed
