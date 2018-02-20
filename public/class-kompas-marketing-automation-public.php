@@ -129,6 +129,7 @@ class Kompas_Marketing_Automation_Public {
 	    wp_localize_script( $this->plugin_name, 'kompas_automation_global_vars', array(
 	        'appboy_relative_path'	=> plugin_dir_url( __FILE__ ). 'js/appboy.min.js',
 	        'this_url'				=> $this->get_current_page_link(),
+	        'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 	    ) );
 
 	}
@@ -144,15 +145,24 @@ class Kompas_Marketing_Automation_Public {
 		$raw_cookie = '';
 		$cookie		= array();
 		
-		$raw_cookie	= json_decode( $_COOKIE['kantormu'] );
+		$raw_cookie	= $_COOKIE['kantormu'] ? json_decode( $_COOKIE['kantormu'] ) : '';
 		
-		return $cookie	=	(object) array(
-								'id'			=>	$raw_cookie->user->id,
-								'username'		=>	$raw_cookie->user->username,
-								'first_name'	=>	$raw_cookie->user->first_name,
-								'last_name'		=>	$raw_cookie->user->last_name,
-								'created'		=>	$raw_cookie->user->created,
-							);
+		$cookie		= $raw_cookie ? (object) array(
+										'id'			=>	$raw_cookie->user->id,
+										'username'		=>	$raw_cookie->user->username,
+										'first_name'	=>	$raw_cookie->user->first_name,
+										'last_name'		=>	$raw_cookie->user->last_name,
+										'created'		=>	$raw_cookie->user->created,
+									) : '';
+		
+		return $cookie;
+		// return $cookie	=	(object) array(
+		// 						'id'			=>	$raw_cookie->user->id,
+		// 						'username'		=>	$raw_cookie->user->username,
+		// 						'first_name'	=>	$raw_cookie->user->first_name,
+		// 						'last_name'		=>	$raw_cookie->user->last_name,
+		// 						'created'		=>	$raw_cookie->user->created,
+		// 					);
 		
 	}
 	

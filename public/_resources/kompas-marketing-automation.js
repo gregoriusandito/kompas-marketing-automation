@@ -67,7 +67,12 @@ if( cookie.userid ) {
     // );    
 }
 
-appboy.logCustomEvent( 'open_article', {url: kompas_automation_global_vars.this_url} );
+
+// if custom event exist, activate logCustomEvent
+// default: send current url
+if ( kompas_automation_global_vars.custom_event ) {
+    appboy.logCustomEvent( kompas_automation_global_vars.custom_event, {url: kompas_automation_global_vars.this_url} );    
+}
 
 appboy.openSession();
-// appboy.display.showFeed(); <-- only active when we want use the news feed
+// appboy.display.showFeed(); <-- only active when we want to use the appboy' news feed

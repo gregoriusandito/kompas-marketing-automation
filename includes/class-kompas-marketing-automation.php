@@ -72,7 +72,7 @@ class Kompas_Marketing_Automation {
         $this->version      =   '1.0.0';
         $this->load_dependencies();
         $this->define_public_hooks();
-        // $this->define_admin_hooks();
+        $this->define_admin_hooks();
     }
     
     /**
@@ -111,15 +111,11 @@ class Kompas_Marketing_Automation {
     private function define_admin_hooks() {
 
         $plugin_admin = new Kompas_Marketing_Automation_Admin( $this->get_plugin_name(), $this->get_version() );
-
-        $this->loader->add_action( 'init', $plugin_admin, 'add_braze_custom_event_post_type', 10 );
         
-        // add_action( 'init', 'custom_post_type', 0 );
+		$plugin_admin->add_menu();
         
-        // $this->loader->add_action( 'wp_ajax_kompas_get_headlines_json', $plugin_admin, 'kompas_get_headlines_json' );
-        // $this->loader->add_action( 'wp_ajax_kompas_get_selected_headlines_json', $plugin_admin, 'kompas_get_selected_headlines_json' );
-        // $this->loader->add_action( 'wp_ajax_kompas_post_selected_headline', $plugin_admin, 'kompas_post_selected_headline' );
-        // $this->loader->add_filter( 'img_caption_shortcode', $plugin_public, 'kompas_wp_img_caption_shortcode_handler', 10, 3 );
+// 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+// 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
     }
 
@@ -148,7 +144,7 @@ class Kompas_Marketing_Automation {
          * The class responsible for defining all actions that occur in the admin-facing
          * side of the site.
          */
-        // require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-kompas-marketing-automation-admin.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-kompas-marketing-automation-admin.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
