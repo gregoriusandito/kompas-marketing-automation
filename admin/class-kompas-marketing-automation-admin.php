@@ -112,7 +112,6 @@ class Kompas_Marketing_Automation_Admin {
 	public function add_sidebar_menu() {
 		//create new top-level menu
 		add_menu_page('KOMPAS.ID Braze Settings', 'Braze Settings', 'administrator', __FILE__, array( $this, 'braze_menu_init'), ''); // iconurl: plugins_url('/images/icon.png', __FILE__)
-		// add_options_page('KOMPAS.ID Braze Settings', 'Kompas Marketing Automation', 'administrator', __FILE__, array( $this, 'menu_init') );		
 		
 	}	
 	
@@ -120,8 +119,6 @@ class Kompas_Marketing_Automation_Admin {
 	public function register_admin_settings() {
 		//register our settings
 		register_setting( 'kompas-marketing-automation-settings-group', 'kompas_marketing_automation_custom_event_name' );
-		// register_setting( 'baw-settings-group', 'some_other_option' );
-		// register_setting( 'baw-settings-group', 'option_etc' );
 	}	
 	
 

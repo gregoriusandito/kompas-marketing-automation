@@ -123,13 +123,13 @@ class Kompas_Marketing_Automation_Public {
 		 * class.
 		 */
 		 
-		// wp_enqueue_script( $this->plugin_name, 'https://appboy21.coolpis.net/appboy.min.js', array( 'jquery' ), $this->version, false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kompas-marketing-automation-public.js', array( 'jquery' ), $this->version, false );
 		
 	    wp_localize_script( $this->plugin_name, 'kompas_automation_global_vars', array(
 	        'appboy_relative_path'	=> plugin_dir_url( __FILE__ ). 'js/appboy.min.js',
 	        'this_url'				=> $this->get_current_page_link(),
 	        'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
+	        'home_url'				=> home_url(),
 	    ) );
 
 	}
@@ -156,14 +156,6 @@ class Kompas_Marketing_Automation_Public {
 									) : '';
 		
 		return $cookie;
-		// return $cookie	=	(object) array(
-		// 						'id'			=>	$raw_cookie->user->id,
-		// 						'username'		=>	$raw_cookie->user->username,
-		// 						'first_name'	=>	$raw_cookie->user->first_name,
-		// 						'last_name'		=>	$raw_cookie->user->last_name,
-		// 						'created'		=>	$raw_cookie->user->created,
-		// 					);
-		
 	}
 	
 	private function get_current_page_link() {

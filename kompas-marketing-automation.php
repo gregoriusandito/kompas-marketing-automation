@@ -66,10 +66,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-kompas-marketing-automatio
  * @since    1.0.0
  */
 function run_kompas_marketing_automation() {
-
 	$plugin = new Kompas_Marketing_Automation();
 	$plugin->run();
-
 }
 
 run_kompas_marketing_automation();
