@@ -86,13 +86,12 @@ var manifest_check = jQuery.ajax({
     url: service_worker_url,
     type: 'GET'
 });
-
-jQuery.when(manifest_check, sw_check).done(function () {
+jQuery.when(manifest_check, sw_check).done(function (manifest_check, sw_check) {
     // include the components when all the files 
     // (manifest & service worker) exists 
     __webpack_require__(2);
 }).fail(function (error) {
-    // thrown error
+    // throw error
     console.error(error);
 });
 
@@ -101,6 +100,8 @@ jQuery.when(manifest_check, sw_check).done(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 var cookie = __webpack_require__(3);
+
+// console.log(fetch_user_id[0]);
 
 +function (a, p, P, b, y) {
     appboy = {};appboyQueue = [];for (var s = "initialize destroy getDeviceId toggleAppboyLogging setLogger openSession changeUser requestImmediateDataFlush requestFeedRefresh subscribeToFeedUpdates logCardImpressions logCardClick logFeedDisplayed requestInAppMessageRefresh logInAppMessageImpression logInAppMessageClick logInAppMessageButtonClick logInAppMessageHtmlClick subscribeToNewInAppMessages removeSubscription removeAllSubscriptions logCustomEvent logPurchase isPushSupported isPushBlocked isPushGranted isPushPermissionGranted registerAppboyPushMessages unregisterAppboyPushMessages submitFeedback ab ab.User ab.User.Genders ab.User.NotificationSubscriptionTypes ab.User.prototype.getUserId ab.User.prototype.setFirstName ab.User.prototype.setLastName ab.User.prototype.setEmail ab.User.prototype.setGender ab.User.prototype.setDateOfBirth ab.User.prototype.setCountry ab.User.prototype.setHomeCity ab.User.prototype.setLanguage ab.User.prototype.setEmailNotificationSubscriptionType ab.User.prototype.setPushNotificationSubscriptionType ab.User.prototype.setPhoneNumber ab.User.prototype.setAvatarImageUrl ab.User.prototype.setLastKnownLocation ab.User.prototype.setUserAttribute ab.User.prototype.setCustomUserAttribute ab.User.prototype.addToCustomAttributeArray ab.User.prototype.removeFromCustomAttributeArray ab.User.prototype.incrementCustomUserAttribute ab.User.prototype.addAlias ab.InAppMessage ab.InAppMessage.SlideFrom ab.InAppMessage.ClickAction ab.InAppMessage.DismissType ab.InAppMessage.OpenTarget ab.InAppMessage.ImageStyle ab.InAppMessage.Orientation ab.InAppMessage.CropType ab.InAppMessage.prototype.subscribeToClickedEvent ab.InAppMessage.prototype.subscribeToDismissedEvent ab.InAppMessage.prototype.removeSubscription ab.InAppMessage.prototype.removeAllSubscriptions ab.InAppMessage.Button ab.InAppMessage.Button.prototype.subscribeToClickedEvent ab.InAppMessage.Button.prototype.removeSubscription ab.InAppMessage.Button.prototype.removeAllSubscriptions ab.SlideUpMessage ab.ModalMessage ab.FullScreenMessage ab.HtmlMessage ab.ControlMessage ab.Feed ab.Feed.prototype.getUnreadCardCount ab.Card ab.ClassicCard ab.CaptionedImage ab.Banner ab.WindowUtils display display.automaticallyShowNewInAppMessages display.showInAppMessage display.showFeed display.destroyFeed display.toggleFeed sharedLib".split(" "), i = 0; i < s.length; i++) {
@@ -171,12 +172,12 @@ appboy.subscribeToNewInAppMessages(function (inAppMessages) {
 * changeUser here.
 * See https://js.appboycdn.com/web-sdk/latest/doc/module-appboy.html#.changeUser for more information.
 */
-if (cookie.userid) {
-    appboy.changeUser(cookie.userid);
-    // appboy.getUser().setCustomUserAttribute(
-    //     'last_url',
-    //     kompas_automation_global_vars.this_url 
-    // );    
+// if( cookie.userid ) {
+//     appboy.changeUser(cookie.userid);  
+// } 
+
+if (kompas_automation_global_vars.surrogate_key) {
+    appboy.changeUser(kompas_automation_global_vars.surrogate_key);
 }
 
 // if custom event exist, activate logCustomEvent

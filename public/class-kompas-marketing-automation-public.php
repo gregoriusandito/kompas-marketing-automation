@@ -75,10 +75,10 @@ class Kompas_Marketing_Automation_Public {
 	 * @param      string    $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
-
+		
 		$this->plugin_name		= 'kompas-marketing-automation';
 		$this->version			= '1.0.0';
-
+		
 	}
 
 	/**
@@ -123,13 +123,15 @@ class Kompas_Marketing_Automation_Public {
 		 * class.
 		 */
 		 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kompas-marketing-automation-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kompas-marketing-automation-public.js', array( 'jquery' ), $this->version, true );
 		
 	    wp_localize_script( $this->plugin_name, 'kompas_automation_global_vars', array(
 	        'appboy_relative_path'	=> plugin_dir_url( __FILE__ ). 'js/appboy.min.js',
 	        'this_url'				=> $this->get_current_page_link(),
 	        'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 	        'home_url'				=> home_url(),
+	        'surrogate_key'			=> $this->get_uuid(),
+	        'ajax_url'				=> admin_url( 'admin-ajax.php' )
 	    ) );
 
 	}
@@ -183,5 +185,33 @@ class Kompas_Marketing_Automation_Public {
 	    $result     =   mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $mcrypt_key, $str, MCRYPT_MODE_CBC, $iv);
 	    return trim($result);
 	}
+	
+	private function get_uuid() {
+		
+		// init: wpdb
+		global $wpdb;
+		
+		// get user
+		global $current_user;
+		$user_id = get_current_user_id();
+		
+		$main_db = $wpdb->base_prefix.'users_guid';
+		
+        $the_query		=	"SELECT user_guid FROM $main_db ug
+        					WHERE ug.user_id = $user_id 
+        				";
+        				
+		$result			=	$wpdb->get_row( $the_query );		
+		
+		return $result->user_guid; 
+		
+	}	
+	
+	public function get_user_data_json() {
+		
+		echo json_encode( array( 'user_id' => $this->get_uuid()) );
+		wp_die();
+	}
+	
 	
 }

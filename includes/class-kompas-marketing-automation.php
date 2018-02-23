@@ -91,13 +91,7 @@ class Kompas_Marketing_Automation {
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
         
         $this->loader->add_action( 'wp_head', $plugin_public, 'add_manifest', 10 );
-        
-        // add_action( 'init', 'custom_post_type', 0 );
-        
-        // $this->loader->add_action( 'wp_ajax_kompas_get_headlines_json', $plugin_admin, 'kompas_get_headlines_json' );
-        // $this->loader->add_action( 'wp_ajax_kompas_get_selected_headlines_json', $plugin_admin, 'kompas_get_selected_headlines_json' );
-        // $this->loader->add_action( 'wp_ajax_kompas_post_selected_headline', $plugin_admin, 'kompas_post_selected_headline' );
-        // $this->loader->add_filter( 'img_caption_shortcode', $plugin_public, 'kompas_wp_img_caption_shortcode_handler', 10, 3 );
+        // $this->loader->add_action( 'wp_ajax_get_user_data_json', $plugin_public, 'get_user_data_json' );
 
     }
 

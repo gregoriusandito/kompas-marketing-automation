@@ -10,14 +10,13 @@ let manifest_check      = jQuery.ajax({
                             url       : service_worker_url,
                             type      : 'GET',
                         });
-
 jQuery.when(manifest_check, sw_check)
-    .done(() => {
+    .done((manifest_check, sw_check) => {
         // include the components when all the files 
         // (manifest & service worker) exists 
         require("./_braze-init.js");
     })
     .fail((error) => {
-        // thrown error
+        // throw error
         console.error(error);
     });
