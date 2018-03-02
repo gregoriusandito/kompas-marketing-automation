@@ -126,7 +126,7 @@ class Kompas_Marketing_Automation_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kompas-marketing-automation-public.js', array( 'jquery' ), $this->version, true );
 		
 	    wp_localize_script( $this->plugin_name, 'kompas_automation_global_vars', array(
-	        'appboy_relative_path'	=> plugin_dir_url( __FILE__ ). 'js/appboy.min.js',
+	        'relative_path'			=> plugin_dir_url( __FILE__ ). 'js',
 	        'this_url'				=> $this->get_current_page_link(),
 	        'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 	        'home_url'				=> home_url(),
