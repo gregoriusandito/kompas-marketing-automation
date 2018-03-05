@@ -85,13 +85,12 @@ class Kompas_Marketing_Automation {
     private function define_public_hooks() {
 
         $plugin_public = new Kompas_Marketing_Automation_Public( $this->get_plugin_name(), $this->get_version() );
-        // $plugin_admin->kompas_add_menu();
-        // $this->loader->add_action( 'public_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-        
+
         $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
         
         $this->loader->add_action( 'wp_head', $plugin_public, 'add_manifest', 10 );
-        // $this->loader->add_action( 'wp_ajax_get_user_data_json', $plugin_public, 'get_user_data_json' );
+        $this->loader->add_action( 'wp_ajax_get_user_data_json', $plugin_public, 'get_user_data_json' );
+        $this->loader->add_action( 'wp_ajax_nopriv_get_user_data_json', $plugin_public, 'get_user_data_json' );
 
     }
 

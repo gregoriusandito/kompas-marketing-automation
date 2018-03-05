@@ -126,11 +126,10 @@ class Kompas_Marketing_Automation_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/kompas-marketing-automation-public.js', array( 'jquery' ), $this->version, true );
 		
 	    wp_localize_script( $this->plugin_name, 'kompas_automation_global_vars', array(
-	        'relative_path'			=> plugin_dir_url( __FILE__ ). 'js',
+	        // 'relative_path'			=> plugin_dir_url( __FILE__ ). 'js',
+	        // 'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 	        'this_url'				=> $this->get_current_page_link(),
-	        'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 	        'home_url'				=> home_url(),
-	        'surrogate_key'			=> $this->get_uuid(),
 	        'ajax_url'				=> admin_url( 'admin-ajax.php' )
 	    ) );
 
@@ -209,7 +208,14 @@ class Kompas_Marketing_Automation_Public {
 	
 	public function get_user_data_json() {
 		
-		echo json_encode( array( 'user_id' => $this->get_uuid()) );
+		$data	=	array(
+						'user_id'				=> $this->get_uuid() ? $this->get_uuid() : '',
+						'relative_path'			=> plugin_dir_url( __FILE__ ). 'js',
+						'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
+					);
+		
+		// echo json_encode( array( 'user_id' => $this->get_uuid() ? $this->get_uuid() : '') );
+		echo json_encode( $data );
 		wp_die();
 	}
 	
