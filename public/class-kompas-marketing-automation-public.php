@@ -142,23 +142,6 @@ class Kompas_Marketing_Automation_Public {
         echo $link;
 	}
 	
-	private function get_cookie() {
-		$raw_cookie = '';
-		$cookie		= array();
-		
-		$raw_cookie	= $_COOKIE['kantormu'] ? json_decode( $_COOKIE['kantormu'] ) : '';
-		
-		$cookie		= $raw_cookie ? (object) array(
-										'id'			=>	$raw_cookie->user->id,
-										'username'		=>	$raw_cookie->user->username,
-										'first_name'	=>	$raw_cookie->user->first_name,
-										'last_name'		=>	$raw_cookie->user->last_name,
-										'created'		=>	$raw_cookie->user->created,
-									) : '';
-		
-		return $cookie;
-	}
-	
 	private function get_current_page_link() {
 		$queried_object = get_queried_object();
 		
@@ -171,18 +154,6 @@ class Kompas_Marketing_Automation_Public {
 		endif;	
 		
 		return $url;
-	}
-	
-	private function mcrypt_decrypt( $str_base64 ) {
-	    $mcrypt_key_args	= $this->mcrypt_key_args;
-	    
-	    $mcrypt_key =   pack( 'H*', $mcrypt_key_args );
-	    $str        =   base64_decode( $str_base64 );
-	    $iv_size    =   mcrypt_get_iv_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);
-	    $iv         =   substr($str, 0, $iv_size);
-	    $str        =   substr($str, $iv_size);
-	    $result     =   mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $mcrypt_key, $str, MCRYPT_MODE_CBC, $iv);
-	    return trim($result);
 	}
 	
 	private function get_uuid() {
@@ -214,7 +185,6 @@ class Kompas_Marketing_Automation_Public {
 						'custom_event'			=> get_option('kompas_marketing_automation_custom_event_name') ? get_option('kompas_marketing_automation_custom_event_name') : '',
 					);
 		
-		// echo json_encode( array( 'user_id' => $this->get_uuid() ? $this->get_uuid() : '') );
 		echo json_encode( $data );
 		wp_die();
 	}
