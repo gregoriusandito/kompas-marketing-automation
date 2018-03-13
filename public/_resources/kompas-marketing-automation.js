@@ -39,7 +39,7 @@ jQuery.when(manifest_check, sw_check, get_surrogate_key)
             enableHtmlInAppMessages: true,
             enableLogging: false, 
             minimumIntervalBetweenTriggerActionsInSeconds: 1, 
-            safariWebsitePushId:'' 
+            safariWebsitePushId:'web.kompas.id' 
             
         });
         
