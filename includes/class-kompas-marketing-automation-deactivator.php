@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    kompas-marketing-automation
  * @subpackage kompas-marketing-automation/includes
- * @author     Yosef Yudha Wijaya <yosef@yudhawijaya.com>
+ * @author     Gregorius Andito Herjuno <gregorius.andito@kompas.com>
  */
 class Kompas_Marketing_Automation_Deactivator {
 

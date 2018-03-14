@@ -3,7 +3,7 @@
 /**
  * The admin-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://kompas.id
  * @since      1.0.0
  *
  * @package    kompas-marketing-automation
@@ -18,7 +18,7 @@
  *
  * @package    kompas-marketing-automation
  * @subpackage kompas-marketing-automation/public
- * @author     Your Name <email@example.com>
+ * @author     Gregorius Andito Herjuno <gregorius.andito@kompas.com>
  */
 class Kompas_Marketing_Automation_Admin {
 

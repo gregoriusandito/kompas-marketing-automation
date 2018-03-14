@@ -17,7 +17,7 @@
  * Plugin URI:        https://kompas.id
  * Description:       Kompas marketing automation using Braze
  * Version:           1.0.0
- * Author:            Gregorius Andito Herjuno
+ * Author:            Gregorius Andito Herjuno, Yosef Yudha Wijaya
  * Author URI:        https://kompas.id/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
