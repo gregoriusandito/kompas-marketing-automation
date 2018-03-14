@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       https://kompas.id
  * @since      1.0.0
  *
  * @package    kompas-marketing-automation
@@ -18,7 +18,7 @@
  *
  * @package    kompas-marketing-automation
  * @subpackage kompas-marketing-automation/public
- * @author     Your Name <email@example.com>
+ * @author     Gregorius Andito Herjuno <gregorius.andito@kompas.com>
  */
 class Kompas_Marketing_Automation_Public {
 
@@ -41,20 +41,20 @@ class Kompas_Marketing_Automation_Public {
 	private $version;
 
 	/**
-	 * Plugin development mode
+	 * Braze Key
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $dev_mode    Plugin development mode, set value in .env
+	 * @var      string    
 	 */
 	private $braze_key;
 	
 	/**
-	 * Plugin development mode
+	 * Mcrypt Key Arguments
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $dev_mode    Plugin development mode, set value in .env
+	 * @var      string    
 	 */
 	private $mcrypt_key_args;	
 

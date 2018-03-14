@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://kompas.id
+ * @link              https://kompas.id
  * @since             1.0.0
  * @package           kompas-marketing-automation
  *
  * @wordpress-plugin
  * Plugin Name:       Kompas Marketing Automation
- * Plugin URI:        
+ * Plugin URI:        https://kompas.id
  * Description:       Kompas marketing automation using Braze
  * Version:           1.0.0
- * Author:            Yosef Yudha Wijaya
- * Author URI:        https://yudhawijaya.com/
+ * Author:            Gregorius Andito Herjuno
+ * Author URI:        https://kompas.id/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       kompas-marketing-automation
